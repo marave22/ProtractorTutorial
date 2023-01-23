@@ -5,5 +5,10 @@ describe('angularjs homepage todo list', function() {
     browser.get('http://juliemr.github.io/protractor-demo/').then(function() {
       console.log("test complete")
     });
+
+    
+
+    
+
   });
 });
