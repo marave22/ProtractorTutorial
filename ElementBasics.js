@@ -1,13 +1,22 @@
 describe('Using Locators', function() {
-    it('First test of Locators', function() {
-        browser.get('http://juliemr.github.io/protractor-demo/');
+    browser.waitForAngularEnabled(false);
 
-        let el1 = element(by.model('first'));
-        let el2 = element(by.model('second'));
-        let btn = element(by.id('gobutton'));
-        let btnOperator = element(by.model('operator'));
-        let result = element(by.xpath('/html/body/div/div/form/h2'))
-        let operatorTag = element(by.xpath('/html/body/div/div/form/select/option[4]'))
+    let el1 = element(by.model('first'));
+    let el2 = element(by.model('second'));
+    let btn = element(by.id('gobutton'));
+    let btnOperator = element(by.model('operator'));
+    let result = element(by.xpath('/html/body/div/div/form/h2'));
+    let operatorTag = element(by.xpath('/html/body/div/div/form/select/option[4]'));
+
+    beforeEach(function() {
+        browser.get('http://juliemr.github.io/protractor-demo/');
+    });
+
+    it('should have a title', function() {
+        expect(browser.getTitle()).toEqual('Super Calculator');
+    });
+
+    it('First test of Locators', function() { 
 
         el1.click();
         el1.sendKeys('5');
@@ -19,13 +28,9 @@ describe('Using Locators', function() {
         el2.sendKeys('5');
 
         btn.click();
-
-        expect(result.getText()).toEqual('25');
-
-        // console.log(result.getText());
-        browser.sleep(5000);
+        browser.waitForAngularEnabled(true);
+        expect(result.getText()).toEqual('25').then(function() {
+            browser.sleep(3000);
+        })
     })
 })
-
-// /html/body/div/div/form/select/option[1]
-// /html/body/div/div/form/select/option[2]
