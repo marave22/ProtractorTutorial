@@ -5,7 +5,7 @@ describe('Using Locators', function() {
     let el2 = element(by.model('second'));
     let btn = element(by.id('gobutton'));
     let btnOperator = element(by.model('operator'));
-    let result = element(by.xpath('/html/body/div/div/form/h2'));
+    let result = element(by.repeater('result in memory')).element(by.css('td:nth-child(2)')); 
     let operatorTag = element(by.xpath('/html/body/div/div/form/select/option[4]'));
 
     beforeEach(function() {
