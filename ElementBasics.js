@@ -5,8 +5,10 @@ describe('Using Locators', function() {
     let el2 = element(by.model('second'));
     let btn = element(by.id('gobutton'));
     let btnOperator = element(by.model('operator'));
-    let result = element(by.repeater('result in memory')).element(by.css('td:nth-child(2)')); 
-    let operatorTag = element(by.xpath('/html/body/div/div/form/select/option[4]'));
+    let result = element(by.repeater('result in memory')).element(by.css('td:nth-child(3)'));
+    let operatorTag = element(by.xpath('/html/body/div/div/form/select/option[3]'));
+
+
 
     beforeEach(function() {
         browser.get('http://juliemr.github.io/protractor-demo/');
@@ -29,7 +31,7 @@ describe('Using Locators', function() {
 
         btn.click();
         browser.waitForAngularEnabled(true);
-        expect(result.getText()).toEqual('25').then(function() {
+        expect(result.getText()).toEqual('0').then(function() {
             browser.sleep(3000);
         })
     })
