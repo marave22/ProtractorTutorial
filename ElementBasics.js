@@ -8,6 +8,9 @@ describe('Using Locators', function() {
     let result = element(by.repeater('result in memory')).element(by.css('td:nth-child(2)')); 
     let operatorTag = element(by.xpath('/html/body/div/div/form/select/option[4]'));
 
+    let allOptions = element.all(by.options('value for (key, value) in operators'));
+    allOptions.
+
     beforeEach(function() {
         browser.get('http://juliemr.github.io/protractor-demo/');
     });
