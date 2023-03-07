@@ -1,0 +1,49 @@
+Index: conf.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>exports.config = {\r\n  framework: 'jasmine',\r\n  seleniumAddress: 'http://localhost:4444/wd/hub',\r\n  specs: ['ElementBasics.js'],\r\n  multiCapabilities: [\r\n    // {\r\n    //   'browserName': 'firefox',\r\n    // },\r\n    {\r\n      'browserName': 'chrome'\r\n    }\r\n]\r\n};
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/conf.js b/conf.js
+--- a/conf.js	(revision 9b36e5e422e03934b34a89494f37273444d5ab13)
++++ b/conf.js	(date 1678052199713)
+@@ -1,7 +1,7 @@
+ exports.config = {
+   framework: 'jasmine',
+   seleniumAddress: 'http://localhost:4444/wd/hub',
+-  specs: ['ElementBasics.js'],
++  specs: ['Practice.js'],
+   multiCapabilities: [
+     // {
+     //   'browserName': 'firefox',
+Index: Practice.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Practice.js b/Practice.js
+new file mode 100644
+--- /dev/null	(date 1678052739705)
++++ b/Practice.js	(date 1678052739705)
+@@ -0,0 +1,19 @@
++describe('Practice website automation', function () {
++    it('Entering valid credentials for Submit', function () {
++        browser.get('https://rahulshettyacademy.com/angularpractice/');
++        browser.manage().window().maximize();
++
++
++        element(by.name("name")).sendKeys("MyStudents");
++        element(by.css("input[name='email")).sendKeys("mystudents@gmail.com");
++        element(by.id("exampleInputPassword1")).sendKeys("password2");
++        element(by.css("input[type='checkbox']")).click();
++        element(by.cssContainingText("[id='exampleFormControlSelect1'] option", "Female")).click();
++        element.all(by.name("inlineRadioOptions")).first().click();
++        element(by.buttonText('Submit')).click().then(function () {
++            element(by.css('.alert-success')).getText().then(function (text) {
++                console.log(text);
++            })
++        })
++    })
++})
+\ No newline at end of file
