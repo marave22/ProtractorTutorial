@@ -1,6 +1,3 @@
-// import {browser, by, element} from "protractor";
-// import {describe, it} from "selenium-webdriver/testing";
-
 describe('Practice with shopping website', function () {
     browser.waitForAngularEnabled(false);
     it('Adding Product into the Cart', function () {
